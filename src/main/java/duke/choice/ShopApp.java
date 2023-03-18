@@ -11,19 +11,21 @@ package duke.choice;
 public class ShopApp {
     public static void main(String[] args) {
         double Tax = 0.2;
-        double TotalTAX ;
-          double TotalPay ;
+        double Total=0.0;
+          
     
      Customer c1 = new Customer ();
         c1.name="Pinky";
         c1.size = "S";
-        int measurement = 3;
+       
                 
           System.out.println("Hello World!" + c1.name);
           
           Clothing iterm1 = new Clothing();
           Clothing iterm2 =new Clothing();
           Clothing iterm3 = new Clothing();
+          
+          Clothing[] Iterms = { iterm1, iterm2, iterm3, new Clothing()};
           
           iterm1.description = "blue jackect";
           iterm1.size ="M";
@@ -38,17 +40,44 @@ public class ShopApp {
           iterm3.prize = 50.5;
           iterm3.description = "Orange JACKECT";
           
-          System.out.println("Item 1 :" + iterm1.description +","+ iterm1.size+","+ iterm1.prize );
-          System.out.println("Item 2 :" + iterm2.description +","+ iterm2.size+","+ iterm2.prize );
+          Iterms[3].description ="dori hand bag";
+          Iterms[3].prize = 5.0;
+          Iterms[3].size ="S";
           
-          TotalTAX = (iterm1.prize + iterm2.prize *2)*Tax;
-          TotalPay =(iterm1.prize + iterm2.prize *2)+TotalTAX;
-          System.out.println("Total is  :"+ TotalPay );
+          //System.out.println("Item 1 :" + iterm1.description +","+ iterm1.size+","+ iterm1.prize );
+          //System.out.println("Item 2 :" + iterm2.description +","+ iterm2.size+","+ iterm2.prize );
           
-          Switch (measurement)
-                  case 1,2,3: size ="S";
-          case44,5,6: 
+          Total = (iterm1.prize + iterm2.prize *2)*(1+Tax);
+    
+        
+         
+          int measurement = 3;
+          switch (measurement)
+                  {
+              case 1: case 2: case 3:
+                      c1.size = "S";
+                      break;
+              case 4 :case 5: case 6: 
+                      c1.size ="M";
+                      break;
+                  case 7: case 8: case 9:
+                      c1.size ="L";
+                      break;
+                  default:
+                      c1.size="XL";
+                      
+                      
+          }  
+          for(Clothing item : Iterms)
+          {  
+          if(c1.size.equals(item.size))  
+              System.out.println("Item  :" + item.description +","+ item.size+","+ item.prize );
+             Total = Total + item.prize;//i want to avoid hard coding and loop inside the array clothing
+             if(Total>15)
+             {break;
+                     }
+    }
+           System.out.println("Total is  :"+ Total); 
+          }        
           
-          
-}
 }
