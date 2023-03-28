@@ -8,14 +8,14 @@ package duke.choice;
  *
  * @author Admin
  */
-public class Clothing {
+public class Clothing implements Comparable<Clothing> {
    private String  description;
     private String  size = "M";
      private double  prize;
   private   final double min_prize= 10.0;
   public   final double tax= 0.2;   
 
-    public Clothing(String description, double prize, String size) {
+    public Clothing  (String description, double prize, String size) {
         this.description = description;
         this.prize = prize;
         this.size = size;
@@ -46,5 +46,13 @@ public class Clothing {
 
     public void setPrize(double prize) {
         this.prize = (prize<min_prize)? min_prize:prize;
+    }
+    @Override
+    public String toString (){
+    return getDescription()+"." + getPrize() +"." + getSize();
+    }
+    @Override
+    public int compareTo (Clothing c){
+    return this.description().compareTo(c.description);
     }
 }

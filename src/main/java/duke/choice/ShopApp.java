@@ -4,6 +4,8 @@
  */
 package duke.choice;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Admin
@@ -32,9 +34,10 @@ public class ShopApp {
          // int measurement = 8;
           
           c1.addItems(Iterms);
-       //   System.out.println(" Customer is :" + iterm1.getDescription() +","+ iterm1.getSize() +","+ iterm1.getPrize() );
+         System.out.println(" Customer is :" + iterm1.getDescription() +","+ iterm1.getSize() +","+ iterm1.getPrize() );
            for(Clothing item :c1.getIterms()){
-    System.out.println(" Iterms :" + item.getDescription() +","+ item.getSize() +","+ item.getPrize() ); 
+    //System.out.println(" Iterms :" + item.getDescription() +","+ item.getSize() +","+ item.getPrize() ); 
+    System.out.println(" Iterms :" + item);
        }
        
           int average=0, count =1;
@@ -54,8 +57,11 @@ public class ShopApp {
          System.out.println(" dont devide by Zero"); 
          
          }
-         
-    
+         Arrays.sort(c1.getIterms(), count, count);
+     for(Clothing item :c1.getIterms()){
+    //System.out.println(" Iterms :" + item.getDescription() +","+ item.getSize() +","+ item.getPrize() ); 
+    System.out.println(" Iterms :" + item);
+       }
          
          
          
